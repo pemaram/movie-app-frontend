@@ -4,11 +4,12 @@ import useAuth from "../../hooks/authentication-hook/useAuth";
 const RequireAuth = () => {
   const { auth, setAuth } = useAuth();
   const location = useLocation();
+  const userId = auth?.id || localStorage.getItem("userId")
 
   const storedAccessToken = localStorage.getItem("accessToken");
 
   if (!auth?.accessToken && storedAccessToken) {
-    setAuth({ accessToken: storedAccessToken });
+    setAuth({ accessToken: storedAccessToken , id : userId});
   }
 
   return auth?.accessToken || storedAccessToken ? (

@@ -2,49 +2,24 @@ import { Button, Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import Logout from "../Logout/Logout";
 
-const textStyle = {
-  fontFamily: 'Montserrat',
-  fontWeight: 600,
-  fontStyle: 'normal',
-  fontSize: '48px',
-  lineHeight: '56px',
-  letterSpacing: '0',
-  textAlign: 'center'
-};
-
-const buttonTextStyle = {
-  fontFamily: 'Montserrat',
-  fontWeight: 700,
-  fontStyle: 'normal',
-  fontSize: '16px',
-  lineHeight: '24px',
-  letterSpacing: '0',
-  textAlign: 'center'
-};
-
-const buttonStyle = {
-  borderRadius: "10px",
-  backgroundColor: "#2BD17E"
-};
-
 const EmptyMovieList = () => {
   return (
     <Box
       sx={{
-        height: "100vh",
+        minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         color: "#fff",
+        px: { xs: 2, sm: 4 }, 
       }}
     >
       <Box
         sx={{
-          flex: "0 0 10%",
+          flex: "0 0 auto",
           display: "flex",
           justifyContent: "flex-end",
           alignItems: "flex-start",
-          margin : "30px 30px 0px 0px",
-          width: "100%",
+          mt: { xs: 2, sm: 3 },
         }}
       >
         <Logout />
@@ -52,20 +27,50 @@ const EmptyMovieList = () => {
 
       <Box
         sx={{
-          flex: "1 1 80%",
+          flex: "1 1 auto",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          textAlign: "center"
+          textAlign: "center",
         }}
       >
-        <Typography variant="h2" mb={2} style={textStyle}>
+        <Typography
+          variant="h2"
+          mb={2}
+          sx={{
+            fontFamily: "Montserrat",
+            fontWeight: 600,
+            fontSize: { xs: "24px", sm: "36px", md: "48px" },
+            lineHeight: { xs: "32px", sm: "44px", md: "56px" },
+          }}
+        >
           Your movie list is empty
         </Typography>
+
         <Link to="/movies/manage" style={{ textDecoration: "none", color: "inherit" }}>
-          <Button variant="contained" style={buttonStyle}>
-            <Typography style={buttonTextStyle}>Add a new movie</Typography>
+          <Button
+            variant="contained"
+            sx={{
+              borderRadius: "10px",
+              backgroundColor: "#2BD17E",
+              px: { xs: 2.5, sm: 4 },
+              py: { xs: 1, sm: 1.5 },
+              mt: 2,
+              "&:hover": { backgroundColor: "#25c474" },
+            }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "Montserrat",
+                fontWeight: 700,
+                fontSize: { xs: "14px", sm: "16px" },
+                lineHeight: { xs: "20px", sm: "24px" },
+                textAlign: "center",
+              }}
+            >
+              Add a new movie
+            </Typography>
           </Button>
         </Link>
       </Box>

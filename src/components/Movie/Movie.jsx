@@ -33,7 +33,7 @@ const Movies = () => {
             display: "flex",
             flexDirection: "column",
             color: "#fff",
-            padding: "20px",
+            padding: { xs: "10px", sm: "20px" },
           }}
         >
           <Box
@@ -42,12 +42,12 @@ const Movies = () => {
               justifyContent: "space-between",
               alignItems: "center",
               mb: 3,
-              padding: "20px"
+              px: { xs: 1, sm: 2 },
             }}
           >
             <Typography
               sx={{
-                fontSize: "24px",
+                fontSize: { xs: "18px", sm: "24px" },
                 fontWeight: 500,
                 display: "flex",
                 alignItems: "center",
@@ -61,19 +61,45 @@ const Movies = () => {
                   <AddCircleOutlineIcon />
                 </IconButton>
               </Link>
-
             </Typography>
 
             <Logout />
           </Box>
 
-          <Grid container spacing={3}>
-            {movies?.data?.map((data, index) => (
-              <Grid item xs={6} sm={6} md={3} lg={2.4} key={index}>
-                <MovieCards data={data} key={data._id} />
-              </Grid>
-            ))}
+          <Grid
+            container
+            spacing={2}
+            justifyContent="center"
+          >
+            <Grid
+              item
+              xs={12}
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "flex-start",
+                gap:"10px"
+              }}
+            >
+              {movies?.data?.map((data, index) => (
+                <Box
+                  key={index}
+                  sx={{
+                    flex: "0 0 auto",
+                    width: {
+                      xs: "48%",
+                      sm: "32%",
+                      md: "24%",
+                      lg: "19%"
+                    }
+                  }}
+                >
+                  <MovieCards data={data} key={data._id} />
+                </Box>
+              ))}
+            </Grid>
           </Grid>
+
 
           <Box
             sx={{
@@ -81,19 +107,16 @@ const Movies = () => {
               justifyContent: "center",
               alignItems: "center",
               gap: 2,
-              mt: 3
+              mt: 3,
+              flexWrap: "wrap"
             }}
           >
             <Button
               variant="text"
               sx={{
                 color: "#fff", textTransform: "none",
-                "&.Mui-disabled": {
-                  color: "gray",
-                },
-                "&:hover": {
-                  backgroundColor: "transparent",
-                },
+                "&.Mui-disabled": { color: "gray" },
+                "&:hover": { backgroundColor: "transparent" },
               }}
               disabled={page === 1}
               onClick={() => handlePageChange(page - 1)}
@@ -122,12 +145,8 @@ const Movies = () => {
               variant="text"
               sx={{
                 color: "#fff", textTransform: "none",
-                "&.Mui-disabled": {
-                  color: "gray",
-                },
-                "&:hover": {
-                  backgroundColor: "transparent",
-                },
+                "&.Mui-disabled": { color: "gray" },
+                "&:hover": { backgroundColor: "transparent" },
               }}
               disabled={page === totalPages}
               onClick={() => handlePageChange(page + 1)}
@@ -144,3 +163,4 @@ const Movies = () => {
 };
 
 export default Movies;
+

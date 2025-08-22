@@ -1,11 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Button,
-  TextField,
-  Box,
-  Typography,
-  Grid,
-} from "@mui/material";
+import { Button, TextField, Box, Typography, Grid } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 import useLoginApi from "../../hooks/api-hook/useLoginApi";
 import { toast, ToastContainer } from "react-toastify";
@@ -86,20 +80,39 @@ const Login = () => {
       <Box
         sx={{
           width: "100%",
-          height: "100vh",
+          minHeight: "100vh",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           px: 2,
         }}
       >
-        <Grid container spacing={5}>
-          <Grid item xs={12} sm={6} md={5} lg={5}>
+        <Grid
+          container
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Grid
+            item
+            xs={12}
+            sm={8}
+            md={6}
+            lg={4}
+            sx={{
+              p: { xs: 3, sm: 5 },
+              borderRadius: 3,
+            }}
+          >
             <Typography
-              variant="h2"
+              variant="h4"
               mb={4}
               align="center"
-              sx={{ color: "#fff", fontWeight: 600 , fontFamily: 'Montserrat, sans-serif'}}
+              sx={{
+                color: "#fff",
+                fontWeight: 600,
+                fontFamily: 'Montserrat, sans-serif',
+                fontSize: { xs: "1.8rem", sm: "2rem" },
+              }}
             >
               Sign in
             </Typography>
@@ -113,8 +126,7 @@ const Login = () => {
                 value={userEmail}
                 onChange={(e) => {
                   setUserEmail(e.target.value);
-                  if (errors.email)
-                    setErrors((prev) => ({ ...prev, email: "" }));
+                  if (errors.email) setErrors((prev) => ({ ...prev, email: "" }));
                 }}
                 error={Boolean(errors.email)}
                 helperText={errors.email}
@@ -125,8 +137,8 @@ const Login = () => {
                     color: "#fff",
                     "&:hover": { backgroundColor: "#0a3a47" },
                     "&.Mui-focused": { backgroundColor: "#0a3a47" },
-                    borderRadius : "11px",
-                     fontFamily: 'Montserrat, sans-serif',
+                    borderRadius: 2,
+                    fontFamily: 'Montserrat, sans-serif',
                   },
                 }}
                 InputLabelProps={{
@@ -148,8 +160,7 @@ const Login = () => {
                 value={userPwd}
                 onChange={(e) => {
                   setUserPwd(e.target.value);
-                  if (errors.password)
-                    setErrors((prev) => ({ ...prev, password: "" }));
+                  if (errors.password) setErrors((prev) => ({ ...prev, password: "" }));
                 }}
                 error={Boolean(errors.password)}
                 helperText={errors.password}
@@ -160,8 +171,8 @@ const Login = () => {
                     color: "#fff",
                     "&:hover": { backgroundColor: "#0a3a47" },
                     "&.Mui-focused": { backgroundColor: "#0a3a47" },
-                    borderRadius : "11px",
-                     fontFamily: 'Montserrat, sans-serif',
+                    borderRadius: 2,
+                    fontFamily: 'Montserrat, sans-serif',
                   },
                 }}
                 InputLabelProps={{
@@ -169,10 +180,9 @@ const Login = () => {
                     color: "#fff",
                     "&.Mui-focused": { color: "#fff" },
                     fontFamily: "Montserrat, sans-serif",
-                    
                   },
                 }}
-                sx={{ mb: 3 }}
+                sx={{ mb: 4 }}
               />
 
               <Button
@@ -184,12 +194,11 @@ const Login = () => {
                   backgroundColor: loading ? "#999" : "#20DF7F",
                   color: "#fff",
                   fontWeight: 600,
-                  fontSize: 16,
+                  fontSize: { xs: 15, sm: 16 },
                   textTransform: "none",
                   py: 1.5,
-                  borderRadius: 3,
+                  borderRadius: 2,
                   fontFamily: 'Montserrat, sans-serif',
-                  fontStyle : "bold",
                   "&:hover": {
                     backgroundColor: loading ? "#999" : "#1cbc6a",
                   },
