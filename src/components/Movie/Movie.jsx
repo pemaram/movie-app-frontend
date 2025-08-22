@@ -78,7 +78,8 @@ const Movies = () => {
                 display: "flex",
                 flexWrap: "wrap",
                 justifyContent: "flex-start",
-                gap:"10px"
+                gap:"10px",
+                width : "100%"
               }}
             >
               {movies?.data?.map((data, index) => (
