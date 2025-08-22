@@ -1,0 +1,29 @@
+.background {
+  background-color: #022B3A;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
+
+.wave1 {
+  z-index: 1;
+  opacity: 0.6;
+  bottom: 0;
+}
+
+.wave2 {
+  z-index: 2;
+  opacity: 0.9;
+  bottom: 0px;
+}
